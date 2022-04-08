@@ -31,11 +31,11 @@
         <th>Nim</th>
         <th>Nama</th>
         <th>Email</th>
-        <th width="70px">Kelas</th>
+        <th>Kelas</th>
         <th>Jurusan</th>
         <th>No_Handphone</th>
-        <th width="140px">TanggalLahir</th>
-        <th width="280px">Action</th>
+        <th>TanggalLahir</th>
+        <th width="270px">Action</th>
     </tr>
     @foreach ($mahasiswa as $Mahasiswa)
     <tr>
@@ -52,6 +52,7 @@
 
                 <a class="btn btn-info" href="{{ route('mahasiswa.show',$Mahasiswa->Nim) }}">Show</a>
                 <a class="btn btn-primary" href="{{ route('mahasiswa.edit',$Mahasiswa->Nim) }}">Edit</a>
+                <a class="btn btn-warning" href="{{route('nilai',$Mahasiswa->Nim) }}"> Nilai</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>

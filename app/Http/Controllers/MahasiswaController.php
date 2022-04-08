@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use App\Models\Kelas;
+use App\Models\Mahasiswa_MataKuliah;
+use App\Models\MataKuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -121,7 +123,14 @@ class MahasiswaController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->search;
-        $mahasiswas = Mahasiswa::where('Nama', 'like', "%" . $keyword . "%")->paginate(5);
+        $mahasiswa = Mahasiswa::where('Nama', 'like', "%" . $keyword . "%")->paginate(5);
         return view('mahasiswas.index', compact('mahasiswa'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function mhsMatkul($Nim){
+        
+        $mahasiswa = Mahasiswa::where('nim', $Nim)->first();
+        return view('mahasiswas.nilai', ['mahasiswa' => $mahasiswa]);
+
     }
 };
