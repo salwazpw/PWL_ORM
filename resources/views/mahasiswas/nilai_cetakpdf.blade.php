@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Mencetak Laporan KARTU HASIL STUDI (KHS)</title>
+    <title>LAPORAN KARTU HASIL STUDI {{ $mahasiswa->Nama}} {{ $mahasiswa->Nim}}</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                     <td>{{ $nilai->nama_matkul }}</td>
                     <td align="center">{{ $nilai->sks }}</td>
                     <td align="center">{{ $nilai->semester }}</td>
-                    <td  lign="center">{{ $nilai->pivot->nilai }}</td>
+                    <td align="center">{{ $nilai->pivot->nilai }}</td>
                 </tr>
             @endforeach
     </table>
