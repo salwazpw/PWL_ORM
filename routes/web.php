@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
-use App\Http\Controllers\MahasiswaMatakuliahController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Http\Request;
 
 /*
@@ -19,3 +19,4 @@ use Illuminate\Http\Request;
 Route::resource('mahasiswa', MahasiswaController::class);
 Route::get('/search', [MahasiswaController::class, 'search'])->name('search');
 Route::get('/mahasiswa/nilai/{mahasiswa}', [MahasiswaController::class, 'mhsMatkul'])->name('nilai');
+Route::resource('articles', ArticleController::class);
