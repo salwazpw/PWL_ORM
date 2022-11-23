@@ -8,6 +8,7 @@ use App\Models\Mahasiswa_MataKuliah;
 use App\Models\MataKuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use PDF;
 
 class MahasiswaController extends Controller
@@ -99,7 +100,7 @@ class MahasiswaController extends Controller
         $mahasiswa->Nim = $request->get('Nim');
         $mahasiswa->Nama = $request->get('Nama');
         if($mahasiswa->foto && file_exists(storage_path('app/public/'. $mahasiswa->foto))){
-            \Storage::delete('public/'. $mahasiswa->foto);
+            Storage::delete('public/'. $mahasiswa->foto);
         }
         $image_name = $request->file('foto')->store('images', 'public');
         $mahasiswa->foto = $image_name;
